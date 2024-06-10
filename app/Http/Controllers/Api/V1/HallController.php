@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers\Api\V1;
+
+use App\Http\Controllers\Controller;
+use App\Models\Hall;
+use App\Http\Requests\StoreHallRequest;
+use App\Http\Requests\UpdateHallRequest;
+
+class HallController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return Hall::all();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreHallRequest $request)
+    {
+        return Hall::create($request->all());
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Hall $hall)
+    {
+        return $hall;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateHallRequest $request, Hall $hall)
+    {
+        // не работает!!!!!!!
+        $hall->update($request->all());
+        return $hall;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Hall $hall)
+    {
+        $hall->delete();
+        return response()->json([
+            'message' => 'Hall removed'
+        ]);
+    }
+}
