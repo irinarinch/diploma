@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('halls', function (Blueprint $table) {
             $table->id();
-            $table->integer('row')->default(0);
-            $table->integer('place')->default(0); 
+            $table->integer('row')->default(10);
+            $table->integer('place')->default(8); 
             $table->timestamps();
         });
     }

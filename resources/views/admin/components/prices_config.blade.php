@@ -5,8 +5,11 @@
       <div class="conf-step__wrapper">
         <p class="conf-step__paragraph">Выберите зал для конфигурации:</p>
         <ul class="conf-step__selectors-box">
-          <li><input type="radio" class="conf-step__radio" name="prices-hall" value="Зал 1"><span class="conf-step__selector">Зал 1</span></li>
-          <li><input type="radio" class="conf-step__radio" name="prices-hall" value="Зал 2" checked><span class="conf-step__selector">Зал 2</span></li>
+          <!-- <li><input type="radio" class="conf-step__radio" name="prices-hall" value="Зал 1"><span class="conf-step__selector">Зал 1</span></li>
+          <li><input type="radio" class="conf-step__radio" name="prices-hall" value="Зал 2" checked><span class="conf-step__selector">Зал 2</span></li> -->
+            @foreach ($halls as $hall)
+                <li><input type="radio" class="conf-step__radio" name="prices-hall" value="Зал {{$hall->id}}"><span class="conf-step__selector">Зал {{$hall->id}}</span></li>
+            @endforeach
         </ul>
           
         <p class="conf-step__paragraph">Установите цены для типов кресел:</p>

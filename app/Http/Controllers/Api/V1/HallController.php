@@ -12,6 +12,8 @@ class HallController extends Controller
     /**
      * Display a listing of the resource.
      */
+   
+    
     public function index()
     {
         return Hall::all();
@@ -21,8 +23,9 @@ class HallController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreHallRequest $request)
-    {
-        return Hall::create($request->all());
+    {        
+        Hall::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -38,9 +41,9 @@ class HallController extends Controller
      */
     public function update(UpdateHallRequest $request, Hall $hall)
     {
-        // не работает!!!!!!!
+        $hall = $request->chairs;
         $hall->update($request->all());
-        return $hall;
+        return redirect()->back();
     }
 
     /**
@@ -49,8 +52,9 @@ class HallController extends Controller
     public function destroy(Hall $hall)
     {
         $hall->delete();
-        return response()->json([
-            'message' => 'Hall removed'
-        ]);
+        // return response()->json([
+        //     'message' => 'Hall removed'
+        // ]);
+        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
       <header class="conf-step__header conf-step__header_opened">
         <h2 class="conf-step__title">Сетка сеансов</h2>
       </header>
+     
       <div class="conf-step__wrapper">
         <p class="conf-step__paragraph">
           <button class="conf-step__button conf-step__button-accent">Добавить фильм</button>
