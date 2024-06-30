@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('halls', function (Blueprint $table) {
+        Schema::create('movie_sessions', function (Blueprint $table) {
             $table->id();
-            $table->integer('row')->default(10);
-            $table->integer('place')->default(8); 
-            $table->boolean('active')->default(true);
+            $table->date('day');
+            $table->string('start_time');
+            $table->foreignId('hall_id');
+            $table->foreignId('movie_id');
+
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('halls');
+        Schema::dropIfExists('movie_sessions');
     }
 };

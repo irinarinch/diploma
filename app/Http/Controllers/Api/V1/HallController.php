@@ -24,8 +24,7 @@ class HallController extends Controller
      */
     public function store(StoreHallRequest $request)
     {        
-        Hall::create($request->all());
-        return redirect()->back();
+        return Hall::create($request->all());
     }
 
     /**
@@ -41,9 +40,8 @@ class HallController extends Controller
      */
     public function update(UpdateHallRequest $request, Hall $hall)
     {
-        $hall = $request->chairs;
         $hall->update($request->all());
-        return redirect()->back();
+        return $hall;
     }
 
     /**
@@ -52,9 +50,9 @@ class HallController extends Controller
     public function destroy(Hall $hall)
     {
         $hall->delete();
-        // return response()->json([
-        //     'message' => 'Hall removed'
-        // ]);
-        return redirect()->back();
+        return response()->json([
+            'message' => 'Hall removed'
+        ]);
+        
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Hall;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@test.ru',
             'password' => 'admin1',
         ]);
+
+        Hall::factory()
+        ->count(3)
+        ->create();
         
 
     }

@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('halls', function (Blueprint $table) {
+        Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->integer('row')->default(10);
-            $table->integer('place')->default(8); 
-            $table->boolean('active')->default(true);
+            $table->string('title');
+            $table->text('description');
+            $table->string('time');
+            $table->string('country');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('halls');
+        Schema::dropIfExists('movies');
     }
 };
