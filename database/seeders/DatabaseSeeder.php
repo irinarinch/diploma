@@ -21,11 +21,5 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@test.ru',
             'password' => 'admin1',
         ]);
-
-        Hall::factory()
-        ->count(3)
-        ->create();
-        
-
     }
 }

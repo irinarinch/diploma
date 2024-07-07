@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Hall;
 use App\Http\Requests\StoreHallRequest;
 use App\Http\Requests\UpdateHallRequest;
+use App\Models\Chair;
 
 class HallController extends Controller
 {
@@ -32,7 +33,7 @@ class HallController extends Controller
      */
     public function show(Hall $hall)
     {
-        return $hall;
+        return Chair::where('hall_id', $hall->id)->get(); 
     }
 
     /**
@@ -55,4 +56,6 @@ class HallController extends Controller
         ]);
         
     }
+
+
 }

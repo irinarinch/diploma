@@ -10,4 +10,8 @@ class Hall extends Model
     use HasFactory;
     
     protected $guarded = false;
+
+    public function chairs() {
+        return $this->hasMany(Chair::class, 'hall_id', 'id');
+    }
 }
