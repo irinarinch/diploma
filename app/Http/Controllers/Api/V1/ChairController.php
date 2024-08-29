@@ -57,7 +57,15 @@ class ChairController extends Controller
      */
     public function update(Request $request, Chair $chair)
     {
-        //
+        $data = $request->validate([
+            'hall_id' => 'integer', 
+            'hall_row' => 'integer',
+            'place' => 'integer',
+            'type' => 'string',
+        ]);
+        $chair->update($data);
+
+        return $chair;
     }
 
     /**
@@ -65,6 +73,10 @@ class ChairController extends Controller
      */
     public function destroy(Chair $chair)
     {
-        //
+        $chair->delete();
+
+        return response()->json([
+            'message' => 'Chair deleted successfully'
+        ]);
     }
 }
