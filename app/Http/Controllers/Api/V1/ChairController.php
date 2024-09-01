@@ -12,9 +12,16 @@ class ChairController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Chair::all();
+        if ($request->has('hall_id')) {
+            $hallId = $request->input('hall_id');
+            // Фильтруем кресла по ID зала
+            return Chair::where('hall_id', $hallId)->get(); 
+        } else {
+            // Если параметра hall_id нет, возвращаем все кресла
+            return Chair::all();
+        }
     }
 
     /**
